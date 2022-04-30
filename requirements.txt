@@ -1,0 +1,15 @@
+-e .
+
+black
+invoke
+jupyter
+jupyterlab
+pywidgets
+matplotlib
+numpy
+pandas
+plotly
+dash
+dash-bootstrap-components
+kaleido
+git+git://github.com/PSLmodels/microdf.git
