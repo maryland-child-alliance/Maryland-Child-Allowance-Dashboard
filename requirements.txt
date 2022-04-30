@@ -4,7 +4,7 @@ black
 invoke
 jupyter
 jupyterlab
-pywidgets
+ipywidgets
 matplotlib
 numpy
 pandas
