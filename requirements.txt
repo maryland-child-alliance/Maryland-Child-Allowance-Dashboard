@@ -9,7 +9,11 @@ matplotlib
 numpy
 pandas
 plotly
+invoke
+nbdime
+pyjanitor
+pyprojroot
 dash
 dash-bootstrap-components
 kaleido
-git+git://github.com/PSLmodels/microdf.git
+# git+git://github.com/PSLmodels/microdf.git
