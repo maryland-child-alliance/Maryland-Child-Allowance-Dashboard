@@ -121,9 +121,7 @@ app = dash.Dash(
     __name__,
     server=server,
     meta_tags=[
-        {
-            "charset": "utf-8",
-        },
+        {"charset": "utf-8",},
         {
             "name": "viewport",
             "content": "width=device-width, initial-scale=1.0, shrink-to-fit=no",
@@ -190,7 +188,6 @@ table_text = html.Div(
     ),
 )
 
-#
 db_header_text = dbc.Col(
     [header_text, sub_text],
     xs=dict(size=9, offset=0),
@@ -211,10 +208,7 @@ logo_img = html.Div(
         width="",
         className="mylogo",
     ),
-    style=dict(
-        paddingTop="",
-        paddingBottom="",
-    ),
+    style=dict(paddingTop="", paddingBottom="",),
 )
 
 db_logo_img = dbc.Col(
@@ -353,7 +347,7 @@ location_filter = html.Div(
         dbc.RadioItems(
             options=[
                 {"label": "County", "value": "county"},
-                {"label": "State Districts", "value": "districts"},
+                {"label": "State legislative districts", "value": "districts"},
             ],
             value="county",
             id="location_filter",
@@ -941,11 +935,7 @@ def update_table(clicks, age, allowance, location):
 
     mytable = dash_table.DataTable(
         columns=[
-            {
-                "name": str(x),
-                "id": str(x),
-                "deletable": False,
-            }
+            {"name": str(x), "id": str(x), "deletable": False,}
             for x in df.columns
         ],
         id="table",
@@ -1180,6 +1170,6 @@ if __name__ == "__main__":
     app.run_server(
         host="localhost",
         port=8055,
-        debug=False,
+        debug=True,
         dev_tools_silence_routes_logging=True,
     )
