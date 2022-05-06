@@ -1,0 +1,27 @@
+# conda env create --file environment.yml
+# mamba env create --file environment.yml
+name: Maryland-Child-Allowance-Dashboard
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - black
+  - invoke
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - nbdime
+  - numpy
+  - pandas
+  - plotly
+  - pyjanitor
+  - pyprojroot
+  - python=3.7
+  - seaborn
+  - pip
+  - pip:
+      - dash
+      - dash-bootstrap-components
+      - kaleido
+      - git+git://github.com/PSLmodels/microdf.git
