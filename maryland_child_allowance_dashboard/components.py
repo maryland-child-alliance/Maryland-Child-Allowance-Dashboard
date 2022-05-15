@@ -141,190 +141,235 @@ def init_db_logo_img():
     return db_logo_img
 
 
-filters_header = html.Div(
-    html.H1(
-        "Apply Filters",
-        className="",
-        id="filters_header",
-        style=dict(
-            fontSize="", fontWeight="bold", color="#E02A3E", marginTop=""
-        ),
-    ),
-    style=dict(display="", marginLeft="", textAlign="center", width="100%"),
-)
-
-# Creating a radio button with two options: All Children and Young Children.
-age_text = html.Div(
-    html.H1(
-        "Eligible Age Group",
-        className="filters-header",
-        id="age_text",
-        style=dict(
-            fontSize="",
-            fontWeight="bold",
-            color=components_colors["Filters Label"][0],
-            marginTop="",
-        ),
-    ),
-    style=dict(display="", marginLeft="", textAlign="left", width="100%"),
-)
-age_filter = html.Div(
-    [
-        dbc.RadioItems(
-            options=[
-                {"label": "All Children (0 - 18)", "value": "all"},
-                {"label": "Young Children (0 - 4)", "value": "young"},
-            ],
-            value="all",
-            id="age_filter",
-            inline=False,
-            label_class_name="filter-label",
-            input_class_name="filter-button",
-            input_checked_class_name="filter-button-checked",
-            input_checked_style=dict(
-                backgroundColor="#E02A3E", border="2px solid #E02A3E"
-            ),
-        ),
-    ]
-)
-
-age_filter_div = html.Div(
-    [age_text, age_filter],
-    style=dict(
-        fontSize="",
-        display="inline-block",
-        marginLeft="",
-        textAlign="",
-        marginBottom="",
-        verticalAlign="",
-    ),
-)
-
-# Creating a radio button with two options.
-allowance_text = html.Div(
-    html.H1(
-        "Child Allowance",
-        className="filters-header",
-        id="allowance_text",
-        style=dict(
-            fontSize="",
-            fontWeight="bold",
-            color=components_colors["Filters Label"][0],
-            marginTop="",
-        ),
-    ),
-    style=dict(display="", marginLeft="", textAlign="left", width="100%"),
-)
-# Creating a radio button that allows the user to select between two options.
-allowance_filter = html.Div(
-    [
-        dbc.RadioItems(
-            options=[
-                {"label": "$100 Monthly", "value": "100"},
-                {"label": "$200 Monthly", "value": "200"},
-            ],
-            value="200",
-            id="allowance_filter",
-            inline=False,
-            label_class_name="filter-label",
-            input_class_name="filter-button",
-            input_checked_class_name="filter-button-checked",
-            input_checked_style=dict(
-                backgroundColor="#E02A3E", border="2px solid #E02A3E"
-            ),
-        ),
-    ]
-)
-
-allowance_filter_div = html.Div(
-    [allowance_text, allowance_filter],
-    style=dict(
-        fontSize="",
-        display="inline-block",
-        marginLeft="3vw",
-        textAlign="",
-        marginBottom="",
-        verticalAlign="",
-    ),
-)
-
-location_text = html.Div(
-    html.H1(
-        "Location",
-        className="filters-header",
-        id="location_text",
-        style=dict(
-            fontSize="",
-            fontWeight="bold",
-            color=components_colors["Filters Label"][0],
-            marginTop="",
-        ),
-    ),
-    style=dict(display="", marginLeft="", textAlign="left", width="100%"),
-)
-location_filter = html.Div(
-    [
-        dbc.RadioItems(
-            options=[
-                {"label": "County", "value": "county"},
-                {"label": "State legislative districts", "value": "districts"},
-            ],
-            value="county",
-            id="location_filter",
-            inline=False,
-            label_class_name="filter-label",
-            input_class_name="filter-button",
-            input_checked_class_name="filter-button-checked",
-            input_checked_style=dict(
-                backgroundColor="#E02A3E", border="2px solid #E02A3E"
-            ),
-        ),
-    ]
-)
-
-location_filter_div = html.Div(
-    [location_text, location_filter],
-    style=dict(
-        fontSize="",
-        display="inline-block",
-        marginLeft="3vw",
-        textAlign="",
-        marginBottom="",
-        verticalAlign="",
-    ),
-)
-
-filters_button = html.Div(
-    [
-        dbc.Button(
-            "Apply",
-            size="lg",
-            outline=False,
-            color="primary",
-            className="me-1",
-            n_clicks=0,
-            id="filters_button",
+def init_filters_header():
+    filters_header = html.Div(
+        html.H1(
+            "Apply Filters",
+            className="",
+            id="filters_header",
             style=dict(
-                fontWeight="bold",
-                border="1px solid transparent",
-                backgroundColor=components_colors["Buttons"][0],
-                color=components_colors["Buttons Text"][0],
+                fontSize="", fontWeight="bold", color="#E02A3E", marginTop=""
+            ),
+        ),
+        style=dict(
+            display="", marginLeft="", textAlign="center", width="100%"
+        ),
+    )
+
+    return filters_header
+
+
+def init_age_filter_div():
+    # Creating a radio button with two options: All Children and Young Children.
+    def init_age_text():
+        age_text = html.Div(
+            html.H1(
+                "Eligible Age Group",
+                className="filters-header",
+                id="age_text",
+                style=dict(
+                    fontSize="",
+                    fontWeight="bold",
+                    color=components_colors["Filters Label"][0],
+                    marginTop="",
+                ),
+            ),
+            style=dict(
+                display="", marginLeft="", textAlign="left", width="100%"
             ),
         )
-    ],
-    style=dict(display="block", paddingTop="0.5vh"),
-)
+        return age_text
+
+    def init_age_filter():
+        age_filter = html.Div(
+            [
+                dbc.RadioItems(
+                    options=[
+                        {"label": "All Children (0 - 18)", "value": "all"},
+                        {"label": "Young Children (0 - 4)", "value": "young"},
+                    ],
+                    value="all",
+                    id="age_filter",
+                    inline=False,
+                    label_class_name="filter-label",
+                    input_class_name="filter-button",
+                    input_checked_class_name="filter-button-checked",
+                    input_checked_style=dict(
+                        backgroundColor="#E02A3E", border="2px solid #E02A3E"
+                    ),
+                ),
+            ]
+        )
+        return age_filter
+
+    age_text = init_age_text()
+    age_filter = init_age_filter()
+
+    age_filter_div = html.Div(
+        # TODO: should these be a function call?
+        [age_text, age_filter],
+        style=dict(
+            fontSize="",
+            display="inline-block",
+            marginLeft="",
+            textAlign="",
+            marginBottom="",
+            verticalAlign="",
+        ),
+    )
+    return age_filter_div
 
 
-filters_buttons_div = html.Div(
-    [filters_button],
-    style=dict(
-        width="100%",
-        display="flex",
-        alignItems="center",
-        justifyContent="center",
-    ),
-)
+def init_allowance_filter_div():
+    # Creating a radio button with two options.
+    allowance_text = html.Div(
+        html.H1(
+            "Child Allowance",
+            className="filters-header",
+            id="allowance_text",
+            style=dict(
+                fontSize="",
+                fontWeight="bold",
+                color=components_colors["Filters Label"][0],
+                marginTop="",
+            ),
+        ),
+        style=dict(display="", marginLeft="", textAlign="left", width="100%"),
+    )
+
+    def init_allowance_filter():
+        # Creating a radio button that allows the user to select between two options.
+        allowance_filter = html.Div(
+            [
+                dbc.RadioItems(
+                    options=[
+                        {"label": "$100 Monthly", "value": "100"},
+                        {"label": "$200 Monthly", "value": "200"},
+                    ],
+                    value="200",
+                    id="allowance_filter",
+                    inline=False,
+                    label_class_name="filter-label",
+                    input_class_name="filter-button",
+                    input_checked_class_name="filter-button-checked",
+                    input_checked_style=dict(
+                        backgroundColor="#E02A3E", border="2px solid #E02A3E"
+                    ),
+                ),
+            ]
+        )
+        return allowance_filter
+
+    allowance_filter_div = html.Div(
+        [allowance_text, init_allowance_filter()],
+        style=dict(
+            fontSize="",
+            display="inline-block",
+            marginLeft="3vw",
+            textAlign="",
+            marginBottom="",
+            verticalAlign="",
+        ),
+    )
+    return allowance_filter_div
+
+
+# Copilot genereated this class, idk what it does but it looks useful
+
+
+class AllowanceFilter(dash.dependencies.Input):
+    def __init__(self, id, value=None, **kwargs):
+        super(AllowanceFilter, self).__init__(id, **kwargs)
+        self.value = value
+
+
+def init_location_filter_div():
+    location_text = html.Div(
+        html.H1(
+            "Location",
+            className="filters-header",
+            id="location_text",
+            style=dict(
+                fontSize="",
+                fontWeight="bold",
+                color=components_colors["Filters Label"][0],
+                marginTop="",
+            ),
+        ),
+        style=dict(display="", marginLeft="", textAlign="left", width="100%"),
+    )
+    location_filter = html.Div(
+        [
+            dbc.RadioItems(
+                options=[
+                    {"label": "County", "value": "county"},
+                    {
+                        "label": "State legislative districts",
+                        "value": "districts",
+                    },
+                ],
+                value="county",
+                id="location_filter",
+                inline=False,
+                label_class_name="filter-label",
+                input_class_name="filter-button",
+                input_checked_class_name="filter-button-checked",
+                input_checked_style=dict(
+                    backgroundColor="#E02A3E", border="2px solid #E02A3E"
+                ),
+            ),
+        ]
+    )
+
+    location_filter_div = html.Div(
+        [location_text, location_filter],
+        style=dict(
+            fontSize="",
+            display="inline-block",
+            marginLeft="3vw",
+            textAlign="",
+            marginBottom="",
+            verticalAlign="",
+        ),
+    )
+
+    return location_filter_div
+
+
+def init_filters_button_div():
+    filters_button = html.Div(
+        [
+            dbc.Button(
+                "Apply",
+                size="lg",
+                outline=False,
+                color="primary",
+                className="me-1",
+                n_clicks=0,
+                id="filters_button",
+                style=dict(
+                    fontWeight="bold",
+                    border="1px solid transparent",
+                    backgroundColor=components_colors["Buttons"][0],
+                    color=components_colors["Buttons Text"][0],
+                ),
+            )
+        ],
+        style=dict(display="block", paddingTop="0.5vh"),
+    )
+
+    filters_buttons_div = html.Div(
+        [filters_button],
+        style=dict(
+            width="100%",
+            display="flex",
+            alignItems="center",
+            justifyContent="center",
+        ),
+    )
+
+    return filters_buttons_div
+
 
 filters_div = html.Div(
     [age_filter_div, allowance_filter_div, location_filter_div],
@@ -337,3 +382,4 @@ filters_div = html.Div(
         justifyContent="center",
     ),
 )
+
