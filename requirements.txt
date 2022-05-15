@@ -16,4 +16,5 @@ pyprojroot
 dash
 dash-bootstrap-components
 kaleido
+geojson_rewind
 # git+git://github.com/PSLmodels/microdf.git
