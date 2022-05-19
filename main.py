@@ -22,7 +22,7 @@ import os
 import json
 
 # import requests
-
+# NOTE: The summary file is rewritten here so I gotta fix that
 """
 df1=pd.read_csv('summary.csv')
 ov_pov_text = []
@@ -103,6 +103,7 @@ components_colors = {
 
 THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
 summary_csv = os.path.join(THIS_FOLDER, "summary.csv")
+# Where did this come from?
 district_all_100_csv = os.path.join(THIS_FOLDER, "district_all_100.csv")
 district_all_200_csv = os.path.join(THIS_FOLDER, "district_all_200.csv")
 district_young_100_csv = os.path.join(THIS_FOLDER, "district_young_100.csv")
@@ -114,6 +115,8 @@ county_young_200_csv = os.path.join(THIS_FOLDER, "county_young_200.csv")
 logo_file = os.path.join(THIS_FOLDER, "mca-logo.png")
 counties_file = os.path.join(THIS_FOLDER, "counties.json")
 districts_file = os.path.join(THIS_FOLDER, "districts_data.json")
+
+summary = pd.read_csv(summary_csv)
 
 server = Flask(__name__)
 
@@ -809,7 +812,8 @@ If young kids and $200 then box 1 is 8.1% and box 2 is 13,949
     [State("age_filter", "value"), State("allowance_filter", "value")],
 )
 def update_figures(clicks, map_clicks, age, allowance):
-    summary = pd.read_csv(summary_csv)
+    # We should just import this at the top of the file, but for some reason
+    # summary = pd.read_csv(summary_csv)
     df = pd.DataFrame()
     # These variables should definitely not be hard coded here, #TODO fix this. Maybe a json file? Or yaml?
     pov_dec = 34.4
