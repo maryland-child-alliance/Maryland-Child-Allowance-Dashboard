@@ -801,12 +801,17 @@ If young kids and $200 then box 1 is 8.1% and box 2 is 13,949
         Output("inequality_indicator", "figure"),
         Output("poverty_indicator", "figure"),
     ],
-    Input("filters_button", "n_clicks"),
+    [
+        Input("filters_button", "n_clicks"),
+        # Add an input for the clicked shape in the choropleth map
+        Input("map_chart", "clickData"),
+    ],
     [State("age_filter", "value"), State("allowance_filter", "value")],
 )
-def update_figures(clicks, age, allowance):
+def update_figures(clicks, map_clicks, age, allowance):
     summary = pd.read_csv(summary_csv)
     df = pd.DataFrame()
+    # These variables should definitely not be hard coded here, #TODO fix this. Maybe a json file? Or yaml?
     pov_dec = 34.4
     pov_out = 55973
 
