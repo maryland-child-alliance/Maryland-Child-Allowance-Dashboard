@@ -1117,7 +1117,7 @@ def update_map(clicks, age, allowance, location):
 
         map_df["N Reform child poverty rate"] = map_df[
             "Reform child poverty rate"
-        ].apply(lambda x: float(x[0:-1]))
+        ]
 
         map_fig = px.choropleth(
             map_df,
