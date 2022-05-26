@@ -1031,7 +1031,8 @@ def update_map(clicks, age, allowance, location):
 
         map_df["N Reform child poverty rate"] = map_df[
             "Reform child poverty rate"
-        ].apply(lambda x: float(x[0:-1]))
+        ]
+        # ].apply(lambda x: float(x[0:-1]))
 
         """
         map_df['N Original overall poverty rate'] = map_df['Original overall poverty rate'].apply(
