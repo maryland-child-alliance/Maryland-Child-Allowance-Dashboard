@@ -88,27 +88,20 @@ def create_district_bar_chart(
 
     fig.update_layout(
         showlegend=False,
-        # yaxis_ticksuffix="%",
+        yaxis_tickformat="p",
         plot_bgcolor="#f7f7f7",
         paper_bgcolor="#f7f7f7",
         margin=dict(l=0, r=0, t=0, b=0),
         title_x=0.5,
         font=dict(color="black", size=12),
     )
-    # fig.update_traces(texttemplate="%{text}%")
     fig.update_traces(texttemplate="%{y:.1%}")
     fig.update_xaxes(
         showgrid=False, showline=True, zeroline=False, linecolor="black",
     )
     fig.update_yaxes(
-        showgrid=False,
-        showline=True,
-        zeroline=False,
-        linecolor="black",
-        # tickformat="%{y:.1%}",
+        showgrid=False, showline=True, zeroline=False, linecolor="black",
     )
-    fig.update_layout(yaxis_tickformat="%{y:.1%}")
-    fig.update_layout(yaxis_tickformat="%")
     return fig
 
 
