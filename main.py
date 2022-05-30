@@ -1132,6 +1132,8 @@ def update_map(clicks, age, allowance, location):
                 "Reform child poverty rate": "<b>New child poverty rate<b>",
                 "Change in child poverty": "<b>Change in child poverty<b>",
             },
+            # TODO: customdata/hovertemplate thing instead of hover_data
+            # Kinda like how I did it https://github.com/UBICenter/polls/blob/master/py/visualize.py, line 514
             hover_data={
                 "Original child poverty rate": True,
                 "Reform child poverty rate": True,
