@@ -99,9 +99,35 @@ def create_district_bar_chart(
     fig.update_xaxes(
         showgrid=False, showline=True, zeroline=False, linecolor="black",
     )
+    return fig
+
+
+def create_sorted_district_barchart(
+    dataframe, x="district", y="change_in_overall_poverty"
+):
+    df = dataframe.sort_values(by=y, ascending=False).copy()
+
+    fig = px.bar(df, x=x, y=y)
+
+    fig.update_layout(
+        showlegend=False,
+        yaxis_tickformat="p",
+        plot_bgcolor="#f7f7f7",
+        paper_bgcolor="#f7f7f7",
+        margin=dict(l=0, r=0, t=0, b=0),
+        title_x=0.5,
+        font=dict(color="black", size=12),
+    )
+    fig.update_traces(texttemplate="%{y:.1%}")
+    fig.update_xaxes(
+        showgrid=False, showline=True, zeroline=False, linecolor="black",
+    )
     fig.update_yaxes(
         showgrid=False, showline=True, zeroline=False, linecolor="black",
     )
+    # Set min and max values for the y axis
+    fig.update_yaxes(range=[-1, 0],)
+
     return fig
 
 
